@@ -1,0 +1,75 @@
+
+class Food:
+    """Родительский класс: еда."""
+
+    def __init__(self, name, color):
+        self.name = name
+        self.color = color
+
+    def info(self):
+        print(f"Название: {self.name}, цвет: {self.color}.")
+
+    def eat(self):
+        print(f"{self.name} можно употреблять в пищу.")
+
+
+class Vegetable(Food):
+    """Класс-наследник: овощи."""
+
+    def __init__(self, name, color, vitamin):
+        super().__init__(name, color)
+        self.vitamin = vitamin
+
+    # Переопределение первого метода
+    def info(self):
+        print(f"Овощ: {self.name}, цвет: {self.color}, "
+              f"витамин: {self.vitamin}.")
+
+    # Переопределение второго метода
+    def eat(self):
+        print(f"{self.name} можно добавлять в салат или суп.")
+
+
+class Fruit(Food):
+    """Класс-наследник: фрукты."""
+
+    def __init__(self, name, color, taste):
+        super().__init__(name, color)
+        self.taste = taste
+
+    # Переопределение первого метода
+    def info(self):
+        print(f"Фрукт: {self.name}, цвет: {self.color}, "
+              f"вкус: {self.taste}.")
+
+    # Переопределение второго метода
+    def eat(self):
+        print(f"{self.name} можно есть свежим или "
+              f"использовать для приготовления десерта.")
+
+
+# Создание объектов
+food = Food("Продукты", "разный")
+carrot = Vegetable("Морковь", "оранжевый", "A")
+tomato = Vegetable("Помидор", "красный", "C")
+apple = Fruit("Яблоко", "зелёный", "сладкий")
+banana = Fruit("Банан", "жёлтый", "сладкий")
+
+# Проверка родительского класса
+print("=== Еда ===")
+food.info()
+food.eat()
+
+# Проверка класса Vegetable
+print("\n=== Овощи ===")
+carrot.info()
+carrot.eat()
+tomato.info()
+tomato.eat()
+
+# Проверка класса Fruit
+print("\n=== Фрукты ===")
+apple.info()
+apple.eat()
+banana.info()
+banana.eat()
